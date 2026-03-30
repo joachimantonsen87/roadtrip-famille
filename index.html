@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚐 Road Trip Espagne du Nord — Famille Aventure 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ==========================================
+   CSS VARIABLES & THEMING
+   ========================================== */
+:root {
+  /* Warm family palette */
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+
+  --sand-50: #fefce8;
+  --sand-100: #fef9c3;
+  --sand-200: #fef08a;
+
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--slate-800);
+  background: var(--slate-50);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-delay-1 { transition-delay: 0.1s; }
+.animate-delay-2 { transition-delay: 0.2s; }
+.animate-delay-3 { transition-delay: 0.3s; }
+.animate-delay-4 { transition-delay: 0.4s; }
+.animate-delay-5 { transition-delay: 0.5s; }
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: var(--transition);
+  transform: translateY(-100%);
+}
+.nav.visible {
+  transform: translateY(0);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--orange-600);
+}
+.nav-links {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: var(--transition);
+  color: var(--slate-600);
+}
+.nav-links a:hover, .nav-links a.active {
+  background: var(--orange-50);
+  color: var(--orange-600);
+}
+
+@media (max-width: 768px) {
+  .nav-links a { font-size: 0.72rem; padding: 5px 8px; }
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&h=900&fit=crop') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(234, 88, 12, 0.55) 0%,
+    rgba(15, 23, 42, 0.65) 50%,
+    rgba(30, 58, 138, 0.5) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  max-width: 800px;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero h1 .emoji { font-size: 0.85em; }
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  opacity: 0.92;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.hero-family {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  opacity: 0.85;
+  font-weight: 500;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounceDown 2s ease-in-out infinite;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+.hero-scroll:hover { opacity: 1; }
+@keyframes bounceDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(12px); }
+}
+
+/* ==========================================
+   STATS BAR
+   ========================================== */
+.stats-bar {
+  background: white;
+  border-bottom: 1px solid var(--slate-200);
+  padding: 20px 0;
+  position: relative;
+  z-index: 5;
+}
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--slate-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--slate-100);
+  transition: var(--transition);
+}
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange-200);
+}
+.stat-emoji { font-size: 1.4rem; }
+.stat-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--slate-700);
+}
+.stat-text span {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--slate-400);
+}
+
+@media (max-width: 600px) {
+  .stats-inner { gap: 8px; }
+  .stat-item { padding: 8px 12px; }
+  .stat-text { font-size: 0.78rem; }
+}
+
+/* ==========================================
+   SECTION BASICS
+   ========================================== */
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--slate-900);
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--slate-500);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* ==========================================
+   ROUTE TIMELINE
+   ========================================== */
+.route-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-900) 100%);
+  color: white;
+}
+.route-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.route-section .section-title { color: white; }
+.route-section .section-subtitle { color: var(--slate-400); }
+
+.route-path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 30px 0;
+}
+.route-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 10px 6px;
+}
+.route-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border: 3px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+.route-stop:hover .route-dot { transform: scale(1.15); border-color: rgba(255,255,255,0.5); }
+.route-stop-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+}
+.route-stop-days {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  font-weight: 500;
+}
+.route-arrow {
+  font-size: 1.2rem;
+  opacity: 0.3;
+  padding: 0 4px;
+  margin-top: -20px;
+}
+
+.dot-orange { background: var(--orange-500); }
+.dot-blue { background: var(--blue-500); }
+.dot-green { background: var(--green-500); }
+.dot-teal { background: #14b8a6; }
+.dot-purple { background: #8b5cf6; }
+
+@media (max-width: 600px) {
+  .route-path { gap: 2px; }
+  .route-stop { padding: 6px 3px; }
+  .route-dot { width: 38px; height: 38px; font-size: 1.05rem; }
+  .route-stop-name { font-size: 0.7rem; }
+  .route-arrow { font-size: 0.9rem; }
+}
+
+/* ==========================================
+   REGION BANNERS
+   ========================================== */
+.region-banner {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.region-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.region-banner:hover .region-banner-bg { transform: scale(1.03); }
+.region-banner-overlay {
+  position: absolute;
+  inset: 0;
+}
+.region-banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px clamp(20px, 5vw, 60px);
+  color: white;
+  width: 100%;
+}
+.region-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.region-banner h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+  margin-bottom: 6px;
+}
+.region-banner p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* Banner themes */
+.banner-huesca .region-banner-overlay { background: linear-gradient(to top, rgba(194, 65, 12, 0.8) 0%, rgba(0,0,0,0.1) 100%); }
+.banner-huesca .region-tag { background: var(--orange-500); }
+
+.banner-cantabria .region-banner-overlay { background: linear-gradient(to top, rgba(29, 78, 216, 0.8) 0%, rgba(0,0,0,0.1) 100%); }
+.banner-cantabria .region-tag { background: var(--blue-500); }
+
+.banner-asturias .region-banner-overlay { background: linear-gradient(to top, rgba(21, 128, 61, 0.8) 0%, rgba(0,0,0,0.1) 100%); }
+.banner-asturias .region-tag { background: var(--green-600); }
+
+.banner-galicia .region-banner-overlay { background: linear-gradient(to top, rgba(30, 58, 138, 0.85) 0%, rgba(0,0,0,0.1) 100%); }
+.banner-galicia .region-tag { background: #2563eb; }
+
+.banner-retour .region-banner-overlay { background: linear-gradient(to top, rgba(107, 33, 168, 0.8) 0%, rgba(0,0,0,0.1) 100%); }
+.banner-retour .region-tag { background: #8b5cf6; }
+
+/* ==========================================
+   DAY CARDS
+   ========================================== */
+.days-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  gap: 24px;
+}
+
+.day-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-100);
+  transition: var(--transition);
+}
+.day-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--slate-200);
+}
+.day-card-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--slate-100);
+}
+.day-number {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+  flex-shrink: 0;
+}
+.day-huesca { background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); }
+.day-cantabria { background: linear-gradient(135deg, var(--blue-400), var(--blue-600)); }
+.day-asturias { background: linear-gradient(135deg, var(--green-400), var(--green-600)); }
+.day-galicia { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+.day-retour { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+
+.day-title-group h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 2px;
+}
+.day-title-group .day-route {
+  font-size: 0.82rem;
+  color: var(--slate-400);
+  font-weight: 500;
+}
+
+.day-card-body {
+  padding: 20px 24px;
+}
+.day-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.day-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--slate-700);
+  line-height: 1.5;
+}
+.day-item-emoji {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+.day-item-text strong {
+  color: var(--slate-900);
+}
+
+.day-tip {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--sand-50);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--orange-400);
+  font-size: 0.85rem;
+  color: var(--slate-600);
+}
+.day-tip strong { color: var(--orange-600); }
+
+.day-alert {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border-radius: var(--radius-md);
+  border-left: 3px solid #ef4444;
+  font-size: 0.85rem;
+  color: var(--slate-700);
+}
+.day-alert strong { color: #dc2626; }
+
+.day-wow {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--orange-50), var(--sand-50));
+  border-radius: var(--radius-md);
+  border: 1px solid var(--orange-200);
+  font-size: 0.88rem;
+  color: var(--orange-700);
+  font-weight: 600;
+  text-align: center;
+}
+
+.camping-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--green-50);
+  border: 1px solid var(--green-200);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green-700);
+  margin-top: 10px;
+}
+.booking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-top: 10px;
+}
+
+/* ==========================================
+   CAMPINGS SECTION
+   ========================================== */
+.campings-section {
+  background: linear-gradient(180deg, var(--slate-50) 0%, white 100%);
+  padding: 80px 20px;
+}
+.campings-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.campings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.camping-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--slate-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.camping-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.camping-card-top {
+  height: 8px;
+}
+.camping-card-top.priority-high { background: linear-gradient(90deg, #ef4444, #f97316); }
+.camping-card-top.priority-med { background: linear-gradient(90deg, #f59e0b, #eab308); }
+.camping-card-top.priority-critical { background: linear-gradient(90deg, #ef4444, #dc2626); animation: pulseBg 2s ease infinite; }
+
+@keyframes pulseBg {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.camping-card-body {
+  padding: 20px;
+}
+.camping-card-body h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--slate-900);
+}
+.camping-card-loc {
+  font-size: 0.82rem;
+  color: var(--slate-400);
+  margin-bottom: 12px;
+}
+.camping-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.camping-feature {
+  padding: 4px 10px;
+  background: var(--slate-50);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-100);
+}
+.camping-card-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.camping-link {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 1px solid var(--slate-200);
+  color: var(--slate-600);
+}
+.camping-link:hover {
+  background: var(--orange-500);
+  color: white;
+  border-color: var(--orange-500);
+}
+.camping-priority {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+.priority-obligatoire { background: #fef2f2; color: #dc2626; }
+.priority-conseille { background: #fefce8; color: #a16207; }
+
+/* ==========================================
+   ACTIVITIES SECTION
+   ========================================== */
+.activities-section {
+  padding: 80px 20px;
+  background: white;
+}
+.activities-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.activity-card {
+  background: var(--slate-50);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--slate-100);
+  transition: var(--transition);
+}
+.activity-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.activity-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.activity-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--slate-900);
+}
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.activity-list li {
+  font-size: 0.88rem;
+  color: var(--slate-600);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.activity-list li::before {
+  content: '›';
+  font-weight: 700;
+  color: var(--orange-500);
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   TIPS SECTION
+   ========================================== */
+.tips-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--slate-800), var(--slate-900));
+  color: white;
+}
+.tips-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.tips-section .section-title { color: white; }
+.tips-section .section-subtitle { color: var(--slate-400); }
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.tip-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+.tip-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+}
+.tip-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+.tip-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+.tip-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tip-card li {
+  font-size: 0.85rem;
+  color: var(--slate-300);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+.tip-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--orange-400);
+  font-weight: bold;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+  background: var(--slate-900);
+  color: var(--slate-400);
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-heart {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--slate-300);
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.05);
+  color: var(--slate-400);
+  transition: var(--transition);
+}
+.footer-links a:hover {
+  background: var(--orange-500);
+  color: white;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* ==========================================
+   SPECIAL CALLOUT - CIES
+   ========================================== */
+.cies-callout {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb, #7c3aed);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  color: white;
+  margin: 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cies-callout::before {
+  content: '🏝️';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 5rem;
+  opacity: 0.15;
+}
+.cies-callout h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.cies-callout .stars {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.cies-callout p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+.cies-steps {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cies-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.cies-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+@media print {
+  .nav, .hero-scroll { display: none !important; }
+  .hero { min-height: 200px; }
+  .day-card, .camping-card, .activity-card, .tip-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  .region-banner { min-height: 120px; }
+  body { font-size: 11pt; }
+  .animate-on-scroll { opacity: 1 !important; transform: none !important; }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 480px) {
+  .section { padding: 50px 16px; }
+  .days-container { padding: 24px 16px; }
+  .day-card-header { padding: 16px; }
+  .day-card-body { padding: 16px; }
+  .camping-card-body { padding: 16px; }
+  .campings-grid { grid-template-columns: 1fr; }
+  .activities-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-logo">🚐 Road Trip 2026</div>
+    <div class="nav-links">
+      <a href="#huesca">Huesca</a>
+      <a href="#cantabria">Cantabrie</a>
+      <a href="#asturias">Asturies</a>
+      <a href="#galicia">Galice</a>
+      <a href="#retour">Retour</a>
+      <a href="#souvenirs">📸 Photos</a>
+      <a href="#agathe">💕 Agathe</a>
+      <a href="#campings">Campings</a>
+      <a href="#activites">Activités</a>
+      <a href="#restos">🍽️ Restos</a>
+      <a href="#tips">Tips</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌍 ÉTÉ 2026 — 4 AU 18 JUILLET</div>
+    <h1><span class="emoji">🚐</span> ROAD TRIP FAMILLE<br>ESPAGNE DU NORD</h1>
+    <p class="hero-sub">15 jours d'aventure • Cantabrie • Asturies • Galice</p>
+    <p class="hero-family">👨‍👩‍👧‍👧 Charlie • Sacha • Tessa + Agathe les weekends !</p>
+  </div>
+  <a href="#stats" class="hero-scroll" aria-label="Descendre">⌄</a>
+</header>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="stats-bar" id="stats">
+  <div class="stats-inner">
+    <div class="stat-item animate-on-scroll">
+      <span class="stat-emoji">📅</span>
+      <div class="stat-text">15 Jours <span>d'aventure</span></div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-1">
+      <span class="stat-emoji">🛣️</span>
+      <div class="stat-text">~2 000 km <span>de roadtrip</span></div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-2">
+      <span class="stat-emoji">🏕️</span>
+      <div class="stat-text">5 Campings <span>piscines & toboggans</span></div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-3">
+      <span class="stat-emoji">🦁</span>
+      <div class="stat-text">Cabárceno <span>150 espèces !</span></div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-4">
+      <span class="stat-emoji">🏔️</span>
+      <div class="stat-text">Covadonga <span>lacs magiques</span></div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-5">
+      <span class="stat-emoji">🏝️</span>
+      <div class="stat-text">Îles Cíes <span>paradis absolu</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROUTE OVERVIEW
+     ============================================================ -->
+<section class="route-section" id="route">
+  <div class="route-inner">
+    <h2 class="section-title animate-on-scroll">🗺️ Notre Itinéraire</h2>
+    <p class="section-subtitle animate-on-scroll">15 jours • Du 4 au 18 juillet 2026 • ~2000 km</p>
+    <div class="route-path animate-on-scroll">
+      <div class="route-stop">
+        <div class="route-dot dot-orange">🏠</div>
+        <div class="route-stop-name">Barcelone</div>
+        <div class="route-stop-days">4 juil.</div>
+      </div>
+      <div class="route-arrow">→</div>
+      <div class="route-stop">
+        <div class="route-dot dot-orange">🏔️</div>
+        <div class="route-stop-name">Huesca</div>
+        <div class="route-stop-days">J1 – J2</div>
+      </div>
+      <div class="route-arrow">→</div>
+      <div class="route-stop">
+        <div class="route-dot dot-blue">🌊</div>
+        <div class="route-stop-name">Cantabrie</div>
+        <div class="route-stop-days">J3 – J6</div>
+      </div>
+      <div class="route-arrow">→</div>
+      <div class="route-stop">
+        <div class="route-dot dot-green">🏔️</div>
+        <div class="route-stop-name">Asturies</div>
+        <div class="route-stop-days">J7 – J8</div>
+      </div>
+      <div class="route-arrow">→</div>
+      <div class="route-stop">
+        <div class="route-dot dot-teal">🌊</div>
+        <div class="route-stop-name">Galice</div>
+        <div class="route-stop-days">J9 – J12</div>
+      </div>
+      <div class="route-arrow">→</div>
+      <div class="route-stop">
+        <div class="route-dot dot-orange">🏠</div>
+        <div class="route-stop-name">Barcelone</div>
+        <div class="route-stop-days">18 juil.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PHOTO GALLERY — SOUVENIRS DU DERNIER TRIP
+     ============================================================ -->
+<section class="section" id="souvenirs" style="background:#1C1917;padding:60px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <h2 class="section-title animate-on-scroll" style="color:#fff;">📸 Souvenirs du dernier trip</h2>
+    <p class="section-subtitle animate-on-scroll" style="color:rgba(255,255,255,.6);">Il y a 2 ans — déjà magique avec Charlie & Sacha. Cette fois, Tessa est de la partie ! 🧡</p>
+    <div class="photo-gallery animate-on-scroll">
+      <div class="photo-item photo-wide"><img src="photos/three-girls-sunset.jpg" alt="Les trois filles au coucher de soleil" loading="lazy"><div class="photo-caption">Les aventurières au sunset 🌅</div></div>
+      <div class="photo-item"><img src="photos/girl-van-ocean.jpg" alt="Vue océan depuis le van" loading="lazy"><div class="photo-caption">Réveil WAOUH 🚐</div></div>
+      <div class="photo-item"><img src="photos/charlie-rock-sunset.jpg" alt="Charlie au coucher de soleil" loading="lazy"><div class="photo-caption">Charlie, la rêveuse ✨</div></div>
+      <div class="photo-item"><img src="photos/sunset-dinner.jpg" alt="Dîner sunset" loading="lazy"><div class="photo-caption">Dîner vue mer 🍝</div></div>
+      <div class="photo-item"><img src="photos/paddle-board.jpg" alt="Paddle board" loading="lazy"><div class="photo-caption">Paddle en famille 🏄</div></div>
+      <div class="photo-item photo-wide"><img src="photos/silhouette-sunset.jpg" alt="Silhouettes sunset falaises" loading="lazy"><div class="photo-caption">Les filles face à l'infini 🌊</div></div>
+      <div class="photo-item"><img src="photos/selfie-dinner.jpg" alt="Selfie camping" loading="lazy"><div class="photo-caption">L'heure du dîner au camping 😋</div></div>
+      <div class="photo-item"><img src="photos/girls-ocean.jpg" alt="Filles dans l'océan" loading="lazy"><div class="photo-caption">Baignade ! 🏖️</div></div>
+      <div class="photo-item"><img src="photos/van-picnic.jpg" alt="Pique-nique dans le van" loading="lazy"><div class="photo-caption">Pique-nique charcuterie 🧀</div></div>
+      <div class="photo-item"><img src="photos/girls-beach-chairs.jpg" alt="Filles plage chaises" loading="lazy"><div class="photo-caption">Mode chill activé 😎</div></div>
+      <div class="photo-item photo-wide"><img src="photos/beach-sunset.jpg" alt="Plage sunset" loading="lazy"><div class="photo-caption">Plage dorée 🌅</div></div>
+      <div class="photo-item"><img src="photos/girls-pool.jpg" alt="Filles piscine camping" loading="lazy"><div class="photo-caption">Piscine camping = bonheur 🏊</div></div>
+      <div class="photo-item"><img src="photos/girls-bunk.jpg" alt="Filles couchette van" loading="lazy"><div class="photo-caption">Le van = notre maison 🏠</div></div>
+      <div class="photo-item"><img src="photos/sticker-book.jpg" alt="Cahier stickers" loading="lazy"><div class="photo-caption">Soirée stickers & histoires 📖</div></div>
+      <div class="photo-item"><img src="photos/girls-sunset-cliffs.jpg" alt="Filles sunset falaises" loading="lazy"><div class="photo-caption">Photographes en herbe 📸</div></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+.photo-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: transform .3s;
+}
+.photo-item:hover { transform: scale(1.02); }
+.photo-item.photo-wide {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+@media(max-width:600px) {
+  .photo-item.photo-wide { grid-column: span 1; aspect-ratio: 4/3; }
+  .photo-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+.photo-item:hover img { transform: scale(1.06); }
+.photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+  color: #fff;
+  padding: 24px 12px 10px;
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.92);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 10000;
+}
+</style>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('active')">✕</button>
+  <img id="lightbox-img" src="" alt="Photo agrandie">
+</div>
+<script>
+document.querySelectorAll('.photo-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+  });
+});
+</script>
+
+<!-- ============================================================
+     HUESCA — J1-J3
+     ============================================================ -->
+<div class="region-banner banner-huesca" id="huesca">
+  <div class="region-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=600&fit=crop')"></div>
+  <div class="region-banner-overlay"></div>
+  <div class="region-banner-content animate-on-scroll">
+    <span class="region-tag">J1 – J2 • 4-5 juillet</span>
+    <h2>🏔️ Huesca</h2>
+    <p>Montagnes pyrénéennes, Ordesa & village médiéval d'Aínsa</p>
+  </div>
+</div>
+
+<div class="days-container">
+  <!-- J1 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-huesca">J1</div>
+      <div class="day-title-group">
+        <h3>Barcelone → Valle de Tena</h3>
+        <span class="day-route">~3h de route — easy drive 🚐</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text"><strong>Camping à réserver</strong> — Valle de Tena, au cœur des Pyrénées</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏊</span><div class="day-item-text">Piscine + détente après la route</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏔️</span><div class="day-item-text">Installation au pied des montagnes</div></div>
+      </div>
+      <div class="day-tip"><strong>💡 Tips :</strong> Camping Escarra recommandé — super cadre familial avec vue montagne</div>
+      <span class="booking-badge">🔴 À RÉSERVER</span>
+    </div>
+  </div>
+
+  <!-- J2 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-huesca">J2</div>
+      <div class="day-title-group">
+        <h3>Balade rivière / Ordesa Light</h3>
+        <span class="day-route">Même camping — journée nature</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🥾</span><div class="day-item-text"><strong>Rando facile en famille</strong> — sentier accessible avec les filles</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌊</span><div class="day-item-text">Rivières cristallines, pique-nique nature</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text">Retour au camping, soirée marshmallows</div></div>
+      </div>
+      <div class="day-tip"><strong>💡 Tips :</strong> Sentier du rio Ara — très accessible avec enfants, eaux turquoise garanties</div>
+    </div>
+  </div>
+
+  <!-- J3 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-huesca">J3</div>
+      <div class="day-title-group">
+        <h3>Aínsa → Lac Mediano</h3>
+        <span class="day-route">Village médiéval + spot WAOUH</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏰</span><div class="day-item-text"><strong>Village d'Aínsa</strong> — l'un des plus beaux villages d'Espagne</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text"><strong>Spot WAOUH</strong> avec vue sur le lac Mediano</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌅</span><div class="day-item-text">Réveil magique face aux montagnes</div></div>
+      </div>
+      <div class="day-wow">✨ MOMENT WAOUH — Réveil face au lac Mediano, montagnes à l'horizon ✨</div>
+      <div class="day-tip"><strong>💡 Google Maps :</strong> Chercher « Embalse de Mediano » pour trouver les spots. ✈️ <strong>Drop Agathe à Bilbao Airport (BIO)</strong> le matin sur la route, puis continue vers Noja.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CANTABRIE — J4-J7
+     ============================================================ -->
+<div class="region-banner banner-cantabria" id="cantabria">
+  <div class="region-banner-bg" style="background-image: url('photos/sunset-dinner.jpg')"></div>
+  <div class="region-banner-overlay"></div>
+  <div class="region-banner-content animate-on-scroll">
+    <span class="region-tag">J3 – J6 • 6-9 juillet</span>
+    <h2>🌊 Cantabrie</h2>
+    <p>Plages infinies, falaises spectaculaires et villages médiévaux</p>
+  </div>
+</div>
+
+<div class="days-container">
+  <!-- J4 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-cantabria">J4</div>
+      <div class="day-title-group">
+        <h3>Arrivée côte → Camping Playa Joyel</h3>
+        <span class="day-route">Direction l'océan — installation au paradis 🏖️</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text"><strong>Camping Playa Joyel, Noja</strong> — accès direct plage de Ris</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏊</span><div class="day-item-text">Piscine + pataugeoire enfants</div></div>
+        <div class="day-item"><span class="day-item-emoji">👧</span><div class="day-item-text">Kids club 5-10 ans • Mini ferme animaux • Mini golf</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌐</span><div class="day-item-text">playajoyel.com — Ouvert avril-sept</div></div>
+      </div>
+      <span class="booking-badge">🔴 À RÉSERVER — Très demandé !</span>
+    </div>
+  </div>
+
+  <!-- J5 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-cantabria">J5</div>
+      <div class="day-title-group">
+        <h3>Santillana del Mar + Comillas</h3>
+        <span class="day-route">Culture, Gaudí et surprises !</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏰</span><div class="day-item-text"><strong>Santillana del Mar</strong> — village médiéval magnifique</div></div>
+        <div class="day-item"><span class="day-item-emoji">🎨</span><div class="day-item-text"><strong>Capricho de Gaudí</strong> — Comillas, architecture folle</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌀</span><div class="day-item-text"><strong>BONUS :</strong> Labyrinthe de Villapresente — le plus grand d'Espagne !</div></div>
+        <div class="day-item"><span class="day-item-emoji">🦁</span><div class="day-item-text"><strong>Zoo de Santillana</strong> — option chouette pour les filles</div></div>
+      </div>
+      <span class="camping-badge">🏕️ Nuit : Playa Joyel</span>
+    </div>
+  </div>
+
+  <!-- J6 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-cantabria">J6</div>
+      <div class="day-title-group">
+        <h3>Côte sauvage — Oyambre + Langre</h3>
+        <span class="day-route">Les plus belles plages sauvages de Cantabrie</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏖️</span><div class="day-item-text"><strong>Playa de Oyambre</strong> — naturelle, immense, sable fin</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏖️</span><div class="day-item-text"><strong>Playa de Langre</strong> — falaises spectaculaires, ambiance bout du monde</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text"><strong>Spot falaise WAOUH</strong> pour la nuit — vue imprenable</div></div>
+      </div>
+      <div class="day-tip"><strong>💡 BONUS :</strong> Parc de Cabárceno si énergie — animaux en semi-liberté + télécabine, les filles vont adorer !</div>
+      <div class="day-wow">✨ WAOUH — Nuit sauvage face aux falaises de l'Atlantique ✨</div>
+    </div>
+  </div>
+
+  <!-- J7 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-cantabria">J7</div>
+      <div class="day-title-group">
+        <h3>Chill océan 🌊</h3>
+        <span class="day-route">Journée slow life — au rythme des marées</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text"><strong>2e nuit sauvage face à l'océan</strong></div></div>
+        <div class="day-item"><span class="day-item-emoji">🌅</span><div class="day-item-text">Réveil avec le bruit des vagues</div></div>
+        <div class="day-item"><span class="day-item-emoji">🐚</span><div class="day-item-text">Journée au rythme des marées — ramassage de coquillages, baignade, sieste</div></div>
+      </div>
+      <div class="day-wow">🧘 Mode slow life activé — pas de programme, juste la mer ✨</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ASTURIES — J8-J11
+     ============================================================ -->
+<div class="region-banner banner-asturias" id="asturias">
+  <div class="region-banner-bg" style="background-image: url('photos/girls-beach-chairs.jpg')"></div>
+  <div class="region-banner-overlay"></div>
+  <div class="region-banner-content animate-on-scroll">
+    <span class="region-tag">J7 – J8 • 10-11 juillet</span>
+    <h2>🏔️ Asturies</h2>
+    <p>Montagnes vertes, côtes sauvages et parcs naturels époustouflants</p>
+  </div>
+</div>
+
+<div class="days-container">
+  <!-- J8 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-asturias">J8</div>
+      <div class="day-title-group">
+        <h3>Llanes → Ribadesella</h3>
+        <span class="day-route">Installation sur la côte asturienne</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text"><strong>Camping Ribadesella</strong> — piscine chauffée intérieure + extérieure</div></div>
+        <div class="day-item"><span class="day-item-emoji">🎢</span><div class="day-item-text">Toboggan • Kids club été • Mini golf • Tennis</div></div>
+        <div class="day-item"><span class="day-item-emoji">📍</span><div class="day-item-text">À 15 min des plages — base parfaite pour Covadonga</div></div>
+        <div class="day-item"><span class="day-item-emoji">💕</span><div class="day-item-text"><strong>Agathe arrive !</strong> Vol BCN → OVD aprem, tu la récupères à l'aéroport (~1h15)</div></div>
+      </div>
+      <span class="booking-badge">🔴 À RÉSERVER</span>
+      <div class="day-tip">✈️ <strong>Récupère Agathe à l'aéroport d'Asturies (OVD)</strong> en fin d'aprem ! Vueling/Volotea, vol direct ~1h30.</div>
+    </div>
+  </div>
+
+  <!-- J9 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-asturias">J9</div>
+      <div class="day-title-group">
+        <h3>Côte + Vélo 🚲</h3>
+        <span class="day-route">Voie verte et plages secrètes</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🚲</span><div class="day-item-text"><strong>Via Verde del Cantábrico</strong> — voie verte, facile et plate, idéale en famille</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏖️</span><div class="day-item-text"><strong>Plages de Llanes</strong> — dont la célèbre Gulpiyuri, plage intérieure !</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text">Spot nuit vue mer</div></div>
+      </div>
+      <div class="day-tip"><strong>💡 Fun fact :</strong> Gulpiyuri est une plage SANS accès à la mer visible — l'eau arrive par des tunnels souterrains. Magique !</div>
+    </div>
+  </div>
+
+  <!-- J10 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-asturias">J10</div>
+      <div class="day-title-group">
+        <h3>Lagos de Covadonga ⭐</h3>
+        <span class="day-route">LA rando emblématique — lacs de montagne</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🥾</span><div class="day-item-text"><strong>Rando magique en famille</strong> — lacs turquoise entourés de montagnes</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text">Nuit montagne — air frais et étoiles</div></div>
+      </div>
+      <div class="day-alert"><strong>⚠️ ATTENTION :</strong> Voitures interdites en été ! Bus navette obligatoire. <strong>Conseil : Partir TRÈS tôt (7h)</strong> pour profiter sans la foule.</div>
+      <div class="day-wow">✨ TOP 3 du voyage — Les lacs de Covadonga, un moment inoubliable ✨</div>
+    </div>
+  </div>
+
+  <!-- J11 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-asturias">J11</div>
+      <div class="day-title-group">
+        <h3>Fun Day 🎢 — Parc Aquatique !</h3>
+        <span class="day-route">PACO Parque Acuático de Corvera</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🎢</span><div class="day-item-text"><strong>PACO — Parque Acuático de Corvera</strong></div></div>
+        <div class="day-item"><span class="day-item-emoji">💰</span><div class="day-item-text">Gratuit -3 ans • 3€ enfants • 5€ adultes</div></div>
+        <div class="day-item"><span class="day-item-emoji">🕐</span><div class="day-item-text">11h30 – 20h15 (baignade 12h – 20h)</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text">Camping simple pour la nuit</div></div>
+      </div>
+      <div class="day-alert"><strong>⚠️ IMPORTANT :</strong> Pas de vente anticipée ! Billets en ligne dès 9h le jour même. Capacité 650 personnes — y aller tôt !</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     GALICE — J12-J16
+     ============================================================ -->
+<div class="region-banner banner-galicia" id="galicia">
+  <div class="region-banner-bg" style="background-image: url('photos/three-girls-sunset.jpg')"></div>
+  <div class="region-banner-overlay"></div>
+  <div class="region-banner-content animate-on-scroll">
+    <span class="region-tag">J9 – J12 • 12-15 juillet</span>
+    <h2>🌊 Galice</h2>
+    <p>Côte atlantique sauvage, île paradisiaque et bout du monde</p>
+  </div>
+</div>
+
+<div class="days-container">
+  <!-- J12 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-galicia">J12</div>
+      <div class="day-title-group">
+        <h3>Baiona — Coup de Cœur ⭐</h3>
+        <span class="day-route">Camping de rêve face à l'Atlantique</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text"><strong>Camping Bayona Playa</strong> — accès direct plage Ladeira</div></div>
+        <div class="day-item"><span class="day-item-emoji">🎢</span><div class="day-item-text"><strong>COUP DE CŒUR :</strong> Toboggan aquatique + hydromasaje</div></div>
+        <div class="day-item"><span class="day-item-emoji">👧</span><div class="day-item-text">Parque infantil : tirolina + camas elásticas</div></div>
+        <div class="day-item"><span class="day-item-emoji">🍽️</span><div class="day-item-text">Restaurant terrasse — coucher de soleil sur l'océan</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌐</span><div class="day-item-text">campingbayonaplaya.com</div></div>
+      </div>
+      <span class="booking-badge">🔴 À RÉSERVER</span>
+    </div>
+  </div>
+
+  <!-- J13 — CIES SPECIAL -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-galicia">J13</div>
+      <div class="day-title-group">
+        <h3>Îles Cíes ⭐⭐⭐⭐⭐</h3>
+        <span class="day-route">JOURNÉE PARADIS ABSOLU</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏝️</span><div class="day-item-text"><strong>Playa de Rodas</strong> = «&nbsp;plus belle plage du monde&nbsp;» (The Guardian)</div></div>
+        <div class="day-item"><span class="day-item-emoji">⛴️</span><div class="day-item-text">Ferry depuis Baiona — ~35 min</div></div>
+        <div class="day-item"><span class="day-item-emoji">👥</span><div class="day-item-text">1 800 visiteurs/jour max — exclusivité garantie</div></div>
+      </div>
+
+      <div class="cies-callout">
+        <h4>🏝️ Réservation Îles Cíes — CRITIQUE !</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>Les Cíes c'est LE moment fort du voyage. Mais ça se prépare :</p>
+        <div class="cies-steps">
+          <div class="cies-step">
+            <div class="cies-step-num">1</div>
+            Autorisation Xunta (gratuite) — autorizacionillasatlanticas.xunta.gal — <strong>90 jours avant !</strong>
+          </div>
+          <div class="cies-step">
+            <div class="cies-step-num">2</div>
+            Billet ferry — dans les 2h après autorisation — mardeons.es
+          </div>
+          <div class="cies-step">
+            <div class="cies-step-num">3</div>
+            Profiter du paradis 🌴
+          </div>
+        </div>
+      </div>
+
+      <span class="camping-badge">🏕️ Retour : Bayona Playa</span>
+    </div>
+  </div>
+
+  <!-- J14 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-galicia">J14</div>
+      <div class="day-title-group">
+        <h3>O Grove / Sanxenxo → Camping Baltar</h3>
+        <span class="day-route">Piscines eau salée et plage à 100m</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🏕️</span><div class="day-item-text"><strong>Camping Baltar, Portonovo</strong> — à 100m de la plage</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏊</span><div class="day-item-text">Piscines eau salée (sans chlore !) + triple toboggan enfants</div></div>
+        <div class="day-item"><span class="day-item-emoji">🛒</span><div class="day-item-text">Supermercado ouvert jusqu'à minuit en été</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌐</span><div class="day-item-text">campingbaltar.com</div></div>
+      </div>
+      <span class="booking-badge">🔴 À RÉSERVER</span>
+    </div>
+  </div>
+
+  <!-- J15 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-galicia">J15</div>
+      <div class="day-title-group">
+        <h3>Aquapark + Costa da Morte</h3>
+        <span class="day-route">Fun + bout du monde</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🎢</span><div class="day-item-text"><strong>Aquapark Cerceda</strong> — 30 000 m² de folie aquatique !</div></div>
+        <div class="day-item"><span class="day-item-emoji">💰</span><div class="day-item-text">7-10€ adultes • 1-7€ enfants selon âge</div></div>
+        <div class="day-item"><span class="day-item-emoji">🕐</span><div class="day-item-text">12h – 20h</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text">Direction Costa da Morte — spot WAOUH</div></div>
+      </div>
+      <div class="day-tip"><strong>💎 BONUS :</strong> Playa de los Cristales — plage de galets en verre poli par l'océan. Les filles vont adorer ramasser des «&nbsp;diamants&nbsp;» !</div>
+      <div class="day-wow">✨ WAOUH — La côte de la mort, sauvage et spectaculaire ✨</div>
+    </div>
+  </div>
+
+  <!-- J16 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-galicia">J16</div>
+      <div class="day-title-group">
+        <h3>Fisterra — Le Bout du Monde</h3>
+        <span class="day-route">Le point le plus à l'ouest de l'Espagne</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text"><strong>Falaises de Fisterra</strong> — là où la terre s'arrête</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌅</span><div class="day-item-text">Coucher de soleil au bout du monde</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌊</span><div class="day-item-text">Réveil face à l'Atlantique infini</div></div>
+      </div>
+      <div class="day-wow">🔥 WAOUH MAX — Fisterra, le coucher de soleil le plus à l'ouest d'Espagne ✨</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     RETOUR — J17-J18
+     ============================================================ -->
+<div class="region-banner banner-retour" id="retour">
+  <div class="region-banner-bg" style="background-image: url('photos/girls-sunset-cliffs.jpg')"></div>
+  <div class="region-banner-overlay"></div>
+  <div class="region-banner-content animate-on-scroll">
+    <span class="region-tag">J13 – J15 • 16-18 juillet</span>
+    <h2>🌲 Retour — Urbión + Barcelone</h2>
+    <p>Forêts enchantées, lac noir et retour tranquille à la maison</p>
+  </div>
+</div>
+
+<div class="days-container">
+  <!-- J17 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-retour">J17</div>
+      <div class="day-title-group">
+        <h3>Picos de Urbión — Laguna Negra</h3>
+        <span class="day-route">Forêt enchantée et lac mystérieux</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🌲</span><div class="day-item-text"><strong>Laguna Negra</strong> — sentier accessible poussettes !</div></div>
+        <div class="day-item"><span class="day-item-emoji">💰</span><div class="day-item-text">Parking 4€ + navette 1,20€ en été</div></div>
+        <div class="day-item"><span class="day-item-emoji">🌊</span><div class="day-item-text">Cascades + forêt de pins enchantée</div></div>
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text">Réveil frais et magique en montagne</div></div>
+      </div>
+      <div class="day-alert"><strong>⚠️ ATTENTION :</strong> 7h de route depuis Fisterra ! Prévoir une étape (León ou Burgos) pour couper le trajet.</div>
+    </div>
+  </div>
+
+  <!-- J18 -->
+  <div class="day-card animate-on-scroll">
+    <div class="day-card-header">
+      <div class="day-number day-retour">J18</div>
+      <div class="day-title-group">
+        <h3>Retour Barcelone 🏠</h3>
+        <span class="day-route">~3h depuis Soria — route tranquille</span>
+      </div>
+    </div>
+    <div class="day-card-body">
+      <div class="day-items">
+        <div class="day-item"><span class="day-item-emoji">🚐</span><div class="day-item-text"><strong>~3h de route</strong> depuis Soria — arrivée cool</div></div>
+        <div class="day-item"><span class="day-item-emoji">🏠</span><div class="day-item-text">Retour à la maison, la tête pleine de souvenirs</div></div>
+        <div class="day-item"><span class="day-item-emoji">📸</span><div class="day-item-text">Soirée photos et souvenirs en famille</div></div>
+      </div>
+      <div class="day-wow">🎉 FIN D'UN VOYAGE INOUBLIABLE — Merci l'Espagne du Nord ! ✨</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AGATHE — WEEKENDS
+     ============================================================ -->
+<section class="section" id="agathe" style="background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); padding: 60px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <h2 class="section-title animate-on-scroll">💕 Les Weekends d'Agathe</h2>
+    <p class="section-subtitle animate-on-scroll">Maman rejoint l'aventure pour les meilleurs moments !</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;margin-top:32px;">
+      
+      <div class="day-card animate-on-scroll" style="border-top:4px solid #EC4899;">
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="font-size:2rem;">✈️</span>
+            <div>
+              <h3 style="font-family:'Outfit',sans-serif;font-size:1.2rem;margin:0;">Weekend 1 — Départ ensemble</h3>
+              <p style="font-size:.85rem;color:#78716C;margin:0;">Sam 4 → Lun 6 juillet</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;">
+            <li style="padding:6px 0;font-size:.9rem;">✅ <strong>Sam 4</strong> — Départ BCN ensemble ! Route vers Huesca</li>
+            <li style="padding:6px 0;font-size:.9rem;">✅ <strong>Dim 5</strong> — Ordesa / rivière en famille complète</li>
+            <li style="padding:6px 0;font-size:.9rem;">🛫 <strong>Lun 6 matin</strong> — Drop à l'<strong>Aéroport de Bilbao (BIO)</strong></li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ C'est sur la route Aínsa → Noja, détour ~30 min</li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ Vol Bilbao → BCN : Vueling ~1h15, ~40-80€</li>
+          </ul>
+          <div style="margin-top:12px;padding:12px;background:#FFF;border-radius:10px;border-left:3px solid #EC4899;">
+            <p style="font-size:.82rem;margin:0;">💡 <strong>Horaire idéal :</strong> Drop Agathe ~10h à BIO, puis tu continues vers Playa Joyel (~1h). Arrivée camping pour le déjeuner !</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card animate-on-scroll" style="border-top:4px solid #EC4899;">
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="font-size:2rem;">💕</span>
+            <div>
+              <h3 style="font-family:'Outfit',sans-serif;font-size:1.2rem;margin:0;">Weekend 2 — Retrouvailles !</h3>
+              <p style="font-size:.85rem;color:#78716C;margin:0;">Ven 10 → Lun 13 juillet</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;">
+            <li style="padding:6px 0;font-size:.9rem;">✈️ <strong>Ven 10 aprem</strong> — Vol BCN → <strong>Asturies (OVD)</strong></li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ Vueling/Volotea, direct ~1h30, ~50-100€</li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ Tu la récupères à OVD (~1h15 de Ribadesella)</li>
+            <li style="padding:6px 0;font-size:.9rem;">✅ <strong>Sam 11</strong> — Lagos de Covadonga ⭐ en famille !</li>
+            <li style="padding:6px 0;font-size:.9rem;">✅ <strong>Dim 12</strong> — Route vers Galice + Baiona</li>
+            <li style="padding:6px 0;font-size:.9rem;">🛫 <strong>Lun 13 matin</strong> — Drop à l'<strong>Aéroport de Vigo (VGO)</strong></li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ Vigo est à seulement 20 min de Baiona !</li>
+            <li style="padding:6px 0;font-size:.85rem;color:#78716C;">→ Vol Vigo → BCN : Ryanair/Vueling ~1h30</li>
+          </ul>
+          <div style="margin-top:12px;padding:12px;background:#FFF;border-radius:10px;border-left:3px solid #EC4899;">
+            <p style="font-size:.82rem;margin:0;">💡 Agathe profite de <strong>Covadonga + Baiona</strong> = les 2 meilleurs moments du trip ! Et VGO est à 20 min du camping. Zéro détour.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="animate-on-scroll" style="margin-top:32px;padding:24px;background:#FFF;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08);">
+      <h3 style="font-family:'Outfit',sans-serif;font-size:1.1rem;margin-bottom:16px;">✈️ Vols à réserver pour Agathe</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+        <div style="padding:14px;background:#F8FAFC;border-radius:10px;">
+          <p style="font-weight:700;margin:0 0 6px;">🛫 Lun 6 juillet</p>
+          <p style="font-size:.85rem;margin:0;color:#78716C;">Bilbao (BIO) → Barcelona (BCN)</p>
+          <p style="font-size:.85rem;margin:4px 0 0;color:#78716C;">Vueling • ~1h15 • ~40-80€</p>
+        </div>
+        <div style="padding:14px;background:#F8FAFC;border-radius:10px;">
+          <p style="font-weight:700;margin:0 0 6px;">✈️ Ven 10 juillet</p>
+          <p style="font-size:.85rem;margin:0;color:#78716C;">Barcelona (BCN) → Asturies (OVD)</p>
+          <p style="font-size:.85rem;margin:4px 0 0;color:#78716C;">Vueling/Volotea • ~1h30 • ~50-100€</p>
+        </div>
+        <div style="padding:14px;background:#F8FAFC;border-radius:10px;">
+          <p style="font-weight:700;margin:0 0 6px;">🛫 Lun 13 juillet</p>
+          <p style="font-size:.85rem;margin:0;color:#78716C;">Vigo (VGO) → Barcelona (BCN)</p>
+          <p style="font-size:.85rem;margin:4px 0 0;color:#78716C;">Ryanair/Vueling • ~1h30 • ~50-100€</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CAMPINGS — SECTION RÉCAPITULATIF
+     ============================================================ -->
+<section class="campings-section" id="campings">
+  <div class="campings-inner">
+    <h2 class="section-title animate-on-scroll">🏕️ Nos Campings</h2>
+    <p class="section-subtitle animate-on-scroll">Tous les spots testés et approuvés — réservez vite !</p>
+
+    <div class="campings-grid">
+      <!-- Camping 1 -->
+      <div class="camping-card animate-on-scroll">
+        <div class="camping-card-top priority-high"></div>
+        <div class="camping-card-body">
+          <h4>🏔️ Camping Valle de Tena</h4>
+          <div class="camping-card-loc">Huesca — Jours 1-2</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏊 Piscine</span>
+            <span class="camping-feature">🏔️ Vue montagne</span>
+            <span class="camping-feature">👨‍👩‍👧‍👧 Familial</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://www.google.com/maps/search/Camping+Escarra+Valle+de+Tena" target="_blank" class="camping-link">📍 Maps</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴 Réservation obligatoire</div>
+        </div>
+      </div>
+
+      <!-- Camping 2 -->
+      <div class="camping-card animate-on-scroll animate-delay-1">
+        <div class="camping-card-top priority-high"></div>
+        <div class="camping-card-body">
+          <h4>🌊 Camping Playa Joyel</h4>
+          <div class="camping-card-loc">Noja, Cantabrie — Jours 4-5</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏖️ Accès plage</span>
+            <span class="camping-feature">🏊 Piscine</span>
+            <span class="camping-feature">👧 Kids club</span>
+            <span class="camping-feature">🐄 Mini ferme</span>
+            <span class="camping-feature">⛳ Mini golf</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://playajoyel.com" target="_blank" class="camping-link">🌐 Site web</a>
+            <a href="https://www.google.com/maps/search/Camping+Playa+Joyel+Noja" target="_blank" class="camping-link">📍 Maps</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴 Réservation obligatoire</div>
+        </div>
+      </div>
+
+      <!-- Camping 3 -->
+      <div class="camping-card animate-on-scroll animate-delay-2">
+        <div class="camping-card-top priority-high"></div>
+        <div class="camping-card-body">
+          <h4>🏔️ Camping Ribadesella</h4>
+          <div class="camping-card-loc">Asturies — Jour 8</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏊 Piscine chauffée</span>
+            <span class="camping-feature">🎢 Toboggan</span>
+            <span class="camping-feature">👧 Kids club</span>
+            <span class="camping-feature">⛳ Mini golf</span>
+            <span class="camping-feature">🎾 Tennis</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://campingribadesella.com" target="_blank" class="camping-link">🌐 Site web</a>
+            <a href="https://www.google.com/maps/search/Camping+Ribadesella" target="_blank" class="camping-link">📍 Maps</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴 Réservation obligatoire</div>
+        </div>
+      </div>
+
+      <!-- Camping 4 -->
+      <div class="camping-card animate-on-scroll animate-delay-3">
+        <div class="camping-card-top priority-high"></div>
+        <div class="camping-card-body">
+          <h4>🌅 Camping Bayona Playa</h4>
+          <div class="camping-card-loc">Baiona, Galice — Jours 12-13</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏖️ Accès plage</span>
+            <span class="camping-feature">🎢 Toboggan aqua</span>
+            <span class="camping-feature">💆 Hydromasaje</span>
+            <span class="camping-feature">🧗 Tirolina</span>
+            <span class="camping-feature">🍽️ Restaurant</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://campingbayonaplaya.com" target="_blank" class="camping-link">🌐 Site web</a>
+            <a href="https://www.google.com/maps/search/Camping+Bayona+Playa+Baiona" target="_blank" class="camping-link">📍 Maps</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴 Réservation obligatoire</div>
+        </div>
+      </div>
+
+      <!-- Camping 5 -->
+      <div class="camping-card animate-on-scroll animate-delay-4">
+        <div class="camping-card-top priority-high"></div>
+        <div class="camping-card-body">
+          <h4>🏖️ Camping Baltar</h4>
+          <div class="camping-card-loc">Portonovo, Galice — Jour 14</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏖️ 100m plage</span>
+            <span class="camping-feature">🏊 Eau salée</span>
+            <span class="camping-feature">🎢 Triple toboggan</span>
+            <span class="camping-feature">🛒 Supermarché</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://campingbaltar.com" target="_blank" class="camping-link">🌐 Site web</a>
+            <a href="https://www.google.com/maps/search/Camping+Baltar+Portonovo" target="_blank" class="camping-link">📍 Maps</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴 Réservation obligatoire</div>
+        </div>
+      </div>
+
+      <!-- Camping 6 -->
+      <div class="camping-card animate-on-scroll animate-delay-5">
+        <div class="camping-card-top priority-med"></div>
+        <div class="camping-card-body">
+          <h4>🏔️ Camping Asturies J11</h4>
+          <div class="camping-card-loc">Asturies — Jour 11</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏕️ Simple</span>
+            <span class="camping-feature">🚐 Étape nuit</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://www.google.com/maps/search/camping+asturies" target="_blank" class="camping-link">📍 Chercher</a>
+          </div>
+          <div class="camping-priority priority-conseille">🟡 Conseillé</div>
+        </div>
+      </div>
+
+      <!-- CIES FERRY -->
+      <div class="camping-card animate-on-scroll">
+        <div class="camping-card-top priority-critical"></div>
+        <div class="camping-card-body">
+          <h4>⛴️ Ferry Îles Cíes</h4>
+          <div class="camping-card-loc">Baiona → Cíes — Jour 13</div>
+          <div class="camping-card-features">
+            <span class="camping-feature">🏝️ Île paradis</span>
+            <span class="camping-feature">⛴️ 35 min</span>
+            <span class="camping-feature">👥 1800/jour max</span>
+            <span class="camping-feature">📋 2 réservations</span>
+          </div>
+          <div class="camping-card-links">
+            <a href="https://autorizacionillasatlanticas.xunta.gal" target="_blank" class="camping-link">📋 Autorisation</a>
+            <a href="https://mardeons.es" target="_blank" class="camping-link">⛴️ Ferry</a>
+          </div>
+          <div class="camping-priority priority-obligatoire">🔴🔴🔴 CRITIQUE — 90j avant !</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACTIVITÉS BEST-OF
+     ============================================================ -->
+<section class="activities-section" id="activites">
+  <div class="activities-inner">
+    <h2 class="section-title animate-on-scroll">🎯 Best-Of Activités</h2>
+    <p class="section-subtitle animate-on-scroll">Le meilleur du trip classé par type — que du bonheur !</p>
+
+    <div class="activities-grid">
+      <div class="activity-card animate-on-scroll">
+        <div class="activity-icon">🥾</div>
+        <h4>Randonnées</h4>
+        <ul class="activity-list">
+          <li>Ordesa light — Pyrénées (J2)</li>
+          <li>Lagos de Covadonga — Asturies (J10) ⭐</li>
+          <li>Laguna Negra — Urbión (J17)</li>
+          <li>Ruta del Cares (si ambitieux!)</li>
+        </ul>
+      </div>
+
+      <div class="activity-card animate-on-scroll animate-delay-1">
+        <div class="activity-icon">🚲</div>
+        <h4>Vélo</h4>
+        <ul class="activity-list">
+          <li>Via Verde del Cantábrico (J9)</li>
+          <li>Côte de Llanes — Asturies</li>
+        </ul>
+      </div>
+
+      <div class="activity-card animate-on-scroll animate-delay-2">
+        <div class="activity-icon">🏖️</div>
+        <h4>Plages</h4>
+        <ul class="activity-list">
+          <li>Playa de Oyambre — Cantabrie</li>
+          <li>Playa de Langre — falaises !</li>
+          <li>Playa de Ris — Noja</li>
+          <li>Playa de Rodas — Cíes ⭐⭐⭐</li>
+          <li>Playa de los Cristales — galets verre</li>
+          <li>Costa da Morte — sauvage</li>
+        </ul>
+      </div>
+
+      <div class="activity-card animate-on-scroll animate-delay-3">
+        <div class="activity-icon">🎢</div>
+        <h4>Fun Kids</h4>
+        <ul class="activity-list">
+          <li>PACO Corvera — parc aquatique (J11)</li>
+          <li>Aquapark Cerceda — 30 000m² (J15)</li>
+          <li>Parc de Cabárceno — animaux (J6)</li>
+          <li>Labyrinthe Villapresente (J5)</li>
+        </ul>
+      </div>
+
+      <div class="activity-card animate-on-scroll animate-delay-4">
+        <div class="activity-icon">🏰</div>
+        <h4>Culture</h4>
+        <ul class="activity-list">
+          <li>Santillana del Mar — village médiéval</li>
+          <li>Capricho de Gaudí — Comillas</li>
+          <li>Cuevas de Altamira</li>
+          <li>Aínsa — village de pierre</li>
+          <li>Fisterra — bout du monde</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TIPS & RECOMMANDATIONS
+     ============================================================ -->
+
+<!-- ============================================================
+     RESTAURANTS — PÉPITES LOCALES
+     ============================================================ -->
+<section class="tips-section" id="restos">
+  <div class="tips-inner">
+    <h2 class="section-title animate-on-scroll">🍽️ Restos Dénichés — Pépites Locales</h2>
+    <p class="section-subtitle animate-on-scroll">Pas de piège à touristes ! On mange comme les locaux, cuisine de qualité, prix doux, terrasses où les filles peuvent bouger.</p>
+    <div class="tips-grid">
+
+      <div class="tip-card animate-on-scroll" style="border-left-color: #16A34A;">
+        <div class="tip-icon">🏔️</div>
+        <h3>Aínsa — J3</h3>
+        <ul>
+          <li>🍕 <strong>Pizzería La Tea</strong> — Plaza Mayor. Pizzas (sans gluten dispo) avec vue sur LA plus belle place d'Espagne. ~10-15€</li>
+          <li>🥘 <strong>Bar Tapas L'Alfil</strong> — Croquettes de ouf dans une ruelle médiévale. Terrasse magique. ~8-12€</li>
+          <li>🍳 <strong>Alberto Restaurante</strong> — Le favori des locaux. Tapas + braise. Terrasse. ~12-18€</li>
+          <li>☕ <strong>La Koffeecleta</strong> — Café de spécialité dans le vieux village. Pause papa !</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll" style="border-left-color: #0EA5E9;">
+        <div class="tip-icon">🌊</div>
+        <h3>Cantabrie — J4-J6</h3>
+        <ul>
+          <li>🦐 <strong>Asador El Águila</strong> (Noja) — Arroz negro + grillades. ~15-20€</li>
+          <li>🍔 <strong>Amaya Bus</strong> (Noja) — Maison, abondant, prix mini. Le plan "on rentre affamés". ~8-10€</li>
+          <li>🍦 <strong>El Ártico</strong> (Comillas) — LES glaces. Stop OBLIGATOIRE. Vote des filles !</li>
+          <li>🌲 <strong>La Pérgola</strong> (Comillas) — Resto DANS un jardin de pins à la plage. Les filles jouent pendant que tu manges = THE plan solo dad</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll" style="border-left-color: #8B5CF6;">
+        <div class="tip-icon">🏔️</div>
+        <h3>Asturies — J7-J8</h3>
+        <ul>
+          <li>🍎 <strong>Sidrería El Tarteru</strong> (Ribadesella) — LA sidrería. Cachopo + sidra. Ambiance 100% asturiana. ~12-18€</li>
+          <li>🍽️ <strong>Mesón El Labrador</strong> (Ribadesella) — Menu complet ~10€ ! Cuisine simple, généreuse, familiale.</li>
+          <li>🐟 <strong>Sidrería Carroceu</strong> — Anchoas con queso, chorizo a la sidra. ~10-15€</li>
+          <li>⭐ <strong>Riu Calabrés</strong> (Llanes) — Fusion, 9.4/10. Pour se faire plaisir un soir. ~25€</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll" style="border-left-color: #F97316;">
+        <div class="tip-icon">🌊</div>
+        <h3>Galice — J9-J12</h3>
+        <ul>
+          <li>🐙 <strong>Pulpería Balneario</strong> (Baiona) — LE pulpo à la plancha. 14€. Stop rapide parfait.</li>
+          <li>🍷 <strong>La Taberna del Pintor</strong> (Baiona) — Huevos rotos con pulpo y langostinos = plat signature. ~15-20€</li>
+          <li>🦑 <strong>La Boquería</strong> (Baiona) — Tapas. Pulpo bipolar (à feira + brasa), chipirones. ~12-15€</li>
+          <li>🥟 <strong>Queimada Gastrobar</strong> (Baiona) — Gyozas de langostinos, mini burgers. Parfait filles ! ~10-15€</li>
+          <li>🫒 <strong>Olivando</strong> (Baiona) — Tostas créatives, sardines. Petit local adorable. ~10-15€</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll" style="border-left-color: #DB2777;">
+        <div class="tip-icon">🦸‍♂️</div>
+        <h3>Astuce Solo Dad au Resto</h3>
+        <ul>
+          <li>✅ Terrasse toujours (les filles bougent, c'est OK dehors)</li>
+          <li>✅ Raciones à partager = tout le monde pioche</li>
+          <li>✅ Pan con tomate en entrée = les filles mangent pendant que tu choisis</li>
+          <li>✅ Horaire espagnol: 14h déj, 21h dîner → filles mangent au camping 19h30, toi tu profites après</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tips-section" id="tips">
+  <div class="tips-inner">
+    <h2 class="section-title animate-on-scroll">💡 Tips & Recommandations</h2>
+    <p class="section-subtitle animate-on-scroll">Tout ce qu'il faut savoir pour un trip sans stress</p>
+
+    <div class="tips-grid">
+      <div class="tip-card animate-on-scroll">
+        <div class="tip-icon">⚠️</div>
+        <h4>Distances à surveiller</h4>
+        <ul>
+          <li>J11 → J12 (Asturies → Baiona) : ~4-5h</li>
+          <li>J16 → J17 (Fisterra → Urbión) : ~7h !! Prévoir étape León/Burgos</li>
+          <li>Les autres trajets sont tous &lt; 3h 👌</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll animate-delay-1">
+        <div class="tip-icon">📅</div>
+        <h4>Réservations prioritaires</h4>
+        <ul>
+          <li><strong>90 jours avant :</strong> Autorisation Cíes + Ferry</li>
+          <li><strong>60 jours avant :</strong> Campings (tous les 🔴)</li>
+          <li><strong>Jour J :</strong> Billets PACO Corvera (9h en ligne !)</li>
+          <li><strong>Été :</strong> Navette Covadonga obligatoire</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll animate-delay-2">
+        <div class="tip-icon">🧳</div>
+        <h4>Check-list Van + Enfants</h4>
+        <ul>
+          <li>Maillots de bain x3 par personne (ça sèche mal !)</li>
+          <li>Crème solaire SPF50 enfants</li>
+          <li>Chaussures eau + sandales rando</li>
+          <li>Jeux de carte, coloriages pour la route</li>
+          <li>Bouées / brassards plage</li>
+          <li>Lampe frontale (soirées camping)</li>
+          <li>Hamac si place dans le van</li>
+          <li>Trousse premier secours</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll animate-delay-3">
+        <div class="tip-icon">🌡️</div>
+        <h4>Météo par région</h4>
+        <ul>
+          <li><strong>Huesca :</strong> Chaud 28-35°C, frais le soir en altitude</li>
+          <li><strong>Cantabrie :</strong> 22-28°C, possible pluie — micro-climat</li>
+          <li><strong>Asturies :</strong> 20-26°C, le «&nbsp;vert&nbsp;» = il pleut parfois !</li>
+          <li><strong>Galice :</strong> 20-28°C, brises océaniques agréables</li>
+          <li><strong>Urbión :</strong> 15-25°C, frais le soir — prévoir polaires</li>
+        </ul>
+      </div>
+
+      <div class="tip-card animate-on-scroll animate-delay-4">
+        <div class="tip-icon">🍽️</div>
+        <h4>Spécialités culinaires</h4>
+        <ul>
+          <li><strong>Huesca :</strong> Ternasco (agneau), migas</li>
+          <li><strong>Cantabrie :</strong> Sobao, quesada, anchois</li>
+          <li><strong>Asturies :</strong> Fabada asturiana, sidra (cidre !)</li>
+          <li><strong>Galice :</strong> Pulpo a feira, empanada, percebes</li>
+          <li>🧒 Kids : Tortilla, croquetas, churros PARTOUT !</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-heart">Fait avec ❤️ pour la famille — Été 2026</div>
+  <div class="footer-links">
+    <a href="#hero">🚐 Accueil</a>
+    <a href="#huesca">🏔️ Huesca</a>
+    <a href="#cantabria">🌊 Cantabrie</a>
+    <a href="#asturias">🏔️ Asturies</a>
+    <a href="#galicia">🌊 Galice</a>
+    <a href="#retour">🌲 Retour</a>
+    <a href="#campings">🏕️ Campings</a>
+    <a href="#activites">🎯 Activités</a>
+    <a href="#tips">💡 Tips</a>
+  </div>
+  <div class="footer-copy">🚐 Road Trip Espagne du Nord — Du 4 au 18 juillet 2026 — Charlie • Sacha • Tessa</div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Intersection Observer — Scroll Animations ──
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // ── Sticky Nav — Show after scrolling past hero ──
+  const nav = document.getElementById('mainNav');
+  const hero = document.getElementById('hero');
+
+  const navObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        nav.classList.add('visible');
+      } else {
+        nav.classList.remove('visible');
+      }
+    },
+    { threshold: 0 }
+  );
+  navObserver.observe(hero);
+
+  // ── Active nav link highlighting ──
+  const sections = ['huesca', 'cantabria', 'asturias', 'galicia', 'retour', 'campings', 'activites', 'tips'];
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    },
+    { threshold: 0.3, rootMargin: '-60px 0px -50% 0px' }
+  );
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
+  });
+
+  // ── Parallax-lite effect on region banners ──
+  const banners = document.querySelectorAll('.region-banner-bg');
+  let ticking = false;
+
+  function updateParallax() {
+    banners.forEach((bg) => {
+      const banner = bg.parentElement;
+      const rect = banner.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < viewH) {
+        const progress = (rect.top + rect.height) / (viewH + rect.height);
+        const offset = (progress - 0.5) * 40;
+        bg.style.transform = 'translateY(' + offset + 'px) scale(1.08)';
+      }
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ── Smooth scroll for all anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
